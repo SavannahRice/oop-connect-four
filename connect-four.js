@@ -1,7 +1,7 @@
 import { Game } from './game.js';
 
 let game;
-//const clickTarget = document.getElementById('click-targets');
+const clickTarget = document.getElementById('click-targets');
 
 function updateUI(){
     console.log('inside update UI');
@@ -54,7 +54,11 @@ window.addEventListener('DOMContentLoaded', event => {
     });
     
     clickTarget.addEventListener('click', event => {
-        game.playInColumn();
+        console.log(event.target.id);
+        let colTarget = event.target.id;
+        let colIdx = colTarget[colTarget.length - 1]
+        colIdx = Number.parseInt(colIdx);
+        game.playInColumn(colIdx);
         updateUI();
     })
 

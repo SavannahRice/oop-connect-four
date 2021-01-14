@@ -6,12 +6,10 @@ export class Game {
         this.player2 = player2;
         this.currentPlayer = 1;
 
-        this.columns = [];
+        this.columns = [(new Column()), (new Column()), (new Column()), (new Column()), (new Column()), (new Column()), (new Column())];
     }
 
-    for (let i = 0; i < 7; i++) {
-        this.columns.push(new Column);
-    }
+    
 
     getName() {
         return `${this.player1} vs. ${this.player2}`
@@ -30,7 +28,7 @@ export class Game {
     }
 
     getTokenAt (rowIndex,columnIndex) {
-    let currentColumn = this.columns[index];
+    let currentColumn = this.columns[columnIndex];
     return currentColumn.getTokenAt(rowIndex);
     }
 }
