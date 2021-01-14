@@ -1,15 +1,23 @@
 import { Game } from './game.js';
 
 let game;
+//const clickTarget = document.getElementById('click-targets');
 
 function updateUI(){
+    console.log('inside update UI');
     const boardHolder = document.getElementById('board-holder');
     const gameName = document.getElementById('game-name');
+    console.log(game);
     if (game === undefined){
         boardHolder.classList.add('is-invisible');
     } else {
         boardHolder.classList.remove('is-invisible');
         gameName.innerHTML = game.getName();
+        if (game.currentPlayer === 1){
+            clickTarget.className = 'red';
+        } else {
+            clickTarget.className = 'black';
+        }
 
 
     }
@@ -35,8 +43,8 @@ window.addEventListener('DOMContentLoaded', event => {
         }
     });
     
-    newGameButton.addEventListener('submit', event => {
-        event.preventDefault();
+    newGameButton.addEventListener('click', event => {
+        //event.preventDefault();
         game = new Game(player1.value, player2.value);
         player1.innerText = '';
         player2.innerText = '';
@@ -44,6 +52,10 @@ window.addEventListener('DOMContentLoaded', event => {
         updateUI();
 
     });
-
+    
+    clickTarget.addEventListener('click', event => {
+        game.playInColumn();
+        updateUI();
+    })
 
 })
