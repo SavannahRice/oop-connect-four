@@ -1,14 +1,14 @@
-import {Game} from './game.js'
+import { Game } from './game.js';
 
 let game;
 
-updateUI(){
+function updateUI(){
     const boardHolder = document.getElementById('board-holder');
     const gameName = document.getElementById('game-name');
     if (game === undefined){
-        boardHolder.className = 'is-invisible';
+        boardHolder.classList.add('is-invisible');
     } else {
-        boardHolder.className = '';
+        boardHolder.classList.remove('is-invisible');
         gameName.innerHTML = game.getName();
 
 
@@ -20,8 +20,16 @@ window.addEventListener('DOMContentLoaded', event => {
     const player1 = document.getElementById('player-1-name');
     const player2 = document.getElementById('player-2-name');
     const newGameButton = document.getElementById('new-game');
+    const clickTarget = document.getElementById('click-targets');
 
     player1.addEventListener('keyup', event => {
+        if (player1.value && player2.value) {
+            newGameButton.disabled = false;
+        }
+    });
+
+    //Refactor later
+    player2.addEventListener('keyup', event => {
         if (player1.value && player2.value) {
             newGameButton.disabled = false;
         }
