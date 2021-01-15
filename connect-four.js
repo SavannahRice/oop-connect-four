@@ -13,7 +13,7 @@ function updateUI(){
     } else {
         boardHolder.classList.remove('is-invisible');
         gameName.innerHTML = game.getName();
-        if (game.currentPlayer === 1){
+        if (game.currentPlayer === 2){
             clickTarget.className = 'red';
         } else {
             clickTarget.className = 'black';
@@ -21,7 +21,7 @@ function updateUI(){
 
 
     }
-    console.log(clickTarget);
+    // console.log(clickTarget);
     for (let i = 0; i < 6; i++) {
 
         for (let j = 0; j < 7; j++) {
@@ -33,17 +33,21 @@ function updateUI(){
             if (value === 1) {
                 let div = document.createElement('div');
                 div.classList.add('token', 'black');
+                element.appendChild(div);
 
             } else if (value === 2) {
                 let div = document.createElement('div');
                 div.classList.add('token', 'red');
+                element.appendChild(div);
 
             }
         }
     }
 
-    for (let i = 0; i < 6; i++){
+    for (let i = 0; i < 7; i++){
         let current = document.getElementById(`column-${i}`);
+        // console.log(current);
+        // console.log(game.columns[1].bind(column));
         if (game.isColumnFull(i)){
             current.classList.add('full');
         } else {
@@ -87,10 +91,12 @@ window.addEventListener('DOMContentLoaded', event => {
     clickTarget.addEventListener('click', event => {
         //console.log(event.target.id);
         let colTarget = event.target.id;
+        if (colTarget.includes('column-')) {
         let colIdx = colTarget[colTarget.length - 1]
         colIdx = Number.parseInt(colIdx);
         game.playInColumn(colIdx);
         updateUI();
+        };
     })
 
 })

@@ -20,7 +20,7 @@ export class Game {
         
         let currentColumn = this.columns[index];
         //console.log(this.columns);
-        //console.log(currentColumn);
+        // console.log(currentColumn);
         if (this.currentPlayer === 1) {
             currentColumn.add(this.currentPlayer);
             this.currentPlayer = 2;
@@ -48,6 +48,10 @@ export class Game {
     let currentColumn = this.columns[columnIndex];
     //console.log(currentColumn.getTokenAt(rowIndex));
     return currentColumn.getTokenAt(rowIndex);
+    }
+
+    isColumnFull(idx) {
+        return this.columns[idx].isFull();
     }
 }
 

@@ -20,17 +20,19 @@ export class Column {
         return this.column[rowIdxNum];
 
     } 
+
     isFull(){
-        if (!(this.column.includes(null))){
-            return true;
-        } else {
-            return false;
-        }
+
+        for(let i = 0; i < 6; i++) {
+            if (this.column[i] === null){
+                return false;
+            } 
+        };
+
+        return true;
     }
     //Check column at inx and run isFull on it
-    isColumnFull(idx){
-        return this.column[idx].isFull();
-    }
+    
 
 }
 
