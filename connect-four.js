@@ -21,6 +21,26 @@ function updateUI(){
 
 
     }
+
+    for (let i = 0; i < 6; i++) {
+
+        for (let j = 0; j < 7; j++) {
+            let square = `square-${i}-${j}`;
+            let element = document.getElementById(square);
+            let value = game.getTokenAt();
+            element.innerHTML = '';
+            
+            if (value === 1) {
+                let div = document.createElement('div');
+                div.classList.add('token', 'black');
+
+            } else if (value === 2) {
+                let div = document.createElement('div');
+                div.classList.add('token', 'red');
+
+            }
+        }
+    }
 }
 
 window.addEventListener('DOMContentLoaded', event => {
