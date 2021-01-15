@@ -27,7 +27,7 @@ export class Column {
     }
     //Check column at inx and run isFull on it
     isColumnFull(idx){
-        return this.isFull()
+        return this.column[idx].isFull();
     }
 
 }
