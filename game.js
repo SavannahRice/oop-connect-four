@@ -13,6 +13,9 @@ export class Game {
     
 
     getName() {
+        if (this.winnerNumber === 3){
+            return `${this.player1} ties with ${this.player2}` 
+        }
         return `${this.player1} vs. ${this.player2}`
     }
 
@@ -20,14 +23,16 @@ export class Game {
         
         let currentColumn = this.columns[index];
         //console.log(this.columns);
-        // console.log(currentColumn);
+        console.log(currentColumn);
         if (this.currentPlayer === 1) {
             currentColumn.add(this.currentPlayer);
             this.currentPlayer = 2;
-        } else {
+        } 
+        else {
             currentColumn.add(this.currentPlayer);
             this.currentPlayer = 1;
         }
+        console.log(currentColumn);
     }
 
     checkForTie() {
