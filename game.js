@@ -33,7 +33,7 @@ export class Game {
         //console.log('row', rowIndex);
         //console.log('col', columnIndex)
     let currentColumn = this.columns[columnIndex];
-    // console.log(currentColumn.getTokenAt(rowIndex));
+    //console.log(currentColumn.getTokenAt(rowIndex));
     return currentColumn.getTokenAt(rowIndex);
     }
 }

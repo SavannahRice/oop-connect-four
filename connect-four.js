@@ -21,7 +21,7 @@ function updateUI(){
 
 
     }
-
+    console.log(clickTarget);
     for (let i = 0; i < 6; i++) {
 
         for (let j = 0; j < 7; j++) {
@@ -41,6 +41,17 @@ function updateUI(){
             }
         }
     }
+
+    for (let i = 0; i < 6; i++){
+        let current = document.getElementById(`column-${i}`);
+        if (game.isColumnFull(i)){
+            current.classList.add('full');
+        } else {
+            current.classList.remove('full');
+        }
+    }
+
+
 }
 
 window.addEventListener('DOMContentLoaded', event => {
