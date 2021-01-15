@@ -4,10 +4,10 @@ let game;
 const clickTarget = document.getElementById('click-targets');
 
 function updateUI(){
-    console.log('inside update UI');
+    //console.log('inside update UI');
     const boardHolder = document.getElementById('board-holder');
     const gameName = document.getElementById('game-name');
-    console.log(game);
+    //console.log(game);
     if (game === undefined){
         boardHolder.classList.add('is-invisible');
     } else {
@@ -27,7 +27,7 @@ function updateUI(){
         for (let j = 0; j < 7; j++) {
             let square = `square-${i}-${j}`;
             let element = document.getElementById(square);
-            let value = game.getTokenAt();
+            let value = game.getTokenAt(i , j);
             element.innerHTML = '';
             
             if (value === 1) {
@@ -74,7 +74,7 @@ window.addEventListener('DOMContentLoaded', event => {
     });
     
     clickTarget.addEventListener('click', event => {
-        console.log(event.target.id);
+        //console.log(event.target.id);
         let colTarget = event.target.id;
         let colIdx = colTarget[colTarget.length - 1]
         colIdx = Number.parseInt(colIdx);

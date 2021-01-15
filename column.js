@@ -20,5 +20,15 @@ export class Column {
         return this.column[rowIdxNum];
 
     } 
+    isFull(){
+        if (!(this.column.includes(null))){
+            return true;
+        }
+    }
+    //Check column at inx and run isFull on it
+    isColumnFull(idx){
+        return this.isFull()
+    }
+
 }
 
