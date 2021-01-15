@@ -23,6 +23,8 @@ export class Column {
     isFull(){
         if (!(this.column.includes(null))){
             return true;
+        } else {
+            return false;
         }
     }
     //Check column at inx and run isFull on it
